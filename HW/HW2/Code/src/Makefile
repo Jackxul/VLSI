@@ -1,23 +1,37 @@
 # -*- Sub Makefile -*-
-# Time-stamp: <2016-03-31 16:32:00 kmodi>
+# Time-stamp: <2023-09-20 18:53:00 kmodi>
 
 CC:=gcc
-CFLAGS:=-Wall -c
+CFLAGS:=-Wall -Wextra
+
+DODEBUG ?= 0
+ifeq ($(DODEBUG), 1)
+	CFLAGS += -DDEBUG_MODE=1
+endif
+
 B_DIR := ../build
 E_DIR := ../exe
 I_DIR := ../include
 SRC=${wildcard *.c}
 OBJ = $(patsubst %.c,$(B_DIR)/%.o,$(SRC))
+EXE:=mlrcs
 
-exe:=start
 
-$(exe): $(OBJ)
-	$(CC) $(OBJ) -lncurses -o $(E_DIR)/$@
+.PHONY: all clean
+
+all:$(EXE)
+
+$(EXE): $(OBJ)
+	$(CC) $(OBJ) -o $(E_DIR)/$@
 	@echo "Makefile: Done."
+	@echo "	**********************************"
+	@echo "	*  -h  for heuristic algorithm   *"
+	@echo "	*  -e  for ILP formulation       *"
+	@echo "	*  EX : mlrcs -e testfile.blif   *"
+	@echo "	**********************************"
 $(B_DIR)/%.o: %.c
 	@$(CC) $(CFLAGS) -I $(I_DIR) -c $< -o $@
 	@echo  "Building objective file $@ from $< ..."
-.PHONY: clean
 clean:
 	@echo "Makefile_sub : Cleaning up..."
 	rm -rf ./../build

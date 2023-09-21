@@ -1,5 +1,5 @@
 # -*-Out Makefile -*-
-# Time-stamp: <2016-03-31 16:32:00 kmodi>
+# Time-stamp: <2023-09-20 18:32:00 kmodi>
 
 build:=$(shell mkdir -p build)
 build:=$(shell mkdir -p exe)
