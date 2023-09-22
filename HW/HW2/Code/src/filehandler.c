@@ -3,7 +3,7 @@
 // Created at 2023-09-21 23:07:00
 #include "filehandler.h"
 
-extern char start_nodes[100];
+extern char start_nodes[100][7];
 
 void file_read(const char *filename){
 
@@ -33,7 +33,7 @@ void file_read(const char *filename){
 
 	//printf("%s", start_nodes);
 }
-void get_node(const char *buffer, char *array){
+void get_node(const char *buffer, char **array){
 	int length = 0;
 	char *token = strtok(buffer, " "); //get the first token
 	token = strtok(NULL, " "); //filter out the first token

@@ -7,7 +7,7 @@
 #include <stdbool.h>
 #include <string.h>
 void file_read(const char *filename);
-void get_node(const char *buffer, char *array);
+void get_node(const char *buffer, char **array);
 
 
 

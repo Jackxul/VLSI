@@ -12,10 +12,9 @@
 #endif
 
 
-char start_nodes[100];
+char start_nodes[100][7];
 
-int main(int argc, char *argv[]){	//argc is the number of arguments, argv is the array of arguments
-		
+int main(int argc, char *argv[]){  //argc is the number of arguments, argv is the array of arguments
 #ifdef DEBUG_MODE
 	printf("DEBUG MODE\n");
 	
