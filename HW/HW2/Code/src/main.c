@@ -5,9 +5,6 @@
 #include <string.h>
 #include "filehandler.h"
 
-extern int *input_ptr;
-
-
 #ifdef DEBUG_MODE
 #define dbg_printf(fmt, ...) printf("[%s][%s][%d]: " fmt "\n", __FILE__, __FUNCTION__, __LINE__, __VA_ARGS__)
 #else
@@ -15,6 +12,7 @@ extern int *input_ptr;
 #endif
 
 
+char start_nodes[100];
 
 int main(int argc, char *argv[]){	//argc is the number of arguments, argv is the array of arguments
 		
@@ -26,11 +24,10 @@ int main(int argc, char *argv[]){	//argc is the number of arguments, argv is the
 	for (int i = 0; i < argc; i++) {
         	dbg_printf("argv[%d] = %s", i, argv[i]);
     	}
-#else
-	printf("RELEASE MODE\n");
 #endif
 	char *option = argv[1];
 	char *filename = argv[2];
+	
 	if(argc != 3){
 		printf("Invalid number of arguments\n");
 		return 1;
@@ -50,7 +47,6 @@ int main(int argc, char *argv[]){	//argc is the number of arguments, argv is the
 		printf("Invalid option\n");
 		return 1;	
 	}
-
 
 
 	return 0;

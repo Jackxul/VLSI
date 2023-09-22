@@ -14,4 +14,4 @@ clean:
 	@rm -rf build
 	@rm -rf exe 
 	@echo "Makefile Clean : Done."
-	@tree .
+	@tree . -L 2
