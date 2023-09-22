@@ -3,18 +3,32 @@
 // Created at 2023-09-21 23:07:00
 #include "filehandler.h"
 
-void file_read(){
-	FILE *fp = fopen("test.txt", "r");
+void file_read(const char *filename){
+
+	char *input_nodes = (char *)calloc(100, sizeof(char));
+	int *input_ptr = (int*)input_nodes;
+	
+	const char *_input = ".input";
+	const char *_output = ".output";
+	const char *_nodes = ".name";
+	FILE *fp = fopen(filename, "r");
+	
 	if(fp != NULL){
-		char buffer[100];
+		char *buffer = malloc(sizeof(char) * 100); //remember to free!
 		while(fgets(buffer, 100, fp) != NULL){
-			printf("%s", buffer);
+			if(strstr(buffer, _input) != NULL){
+				printf("%s", buffer);
+			}else if(strstr(buffer, _output) != NULL){
+				printf("%s", buffer);
+			}else if(strstr(buffer, _nodes) != NULL){
+				printf("%s", buffer);
+			}
 		}
 		fclose(fp);
+		free(buffer);
 	}else{
-		printf("Error: .txt open failed!\n");
+		printf("Error: .blif open failed!\n");
 	}
 }
-
 
 

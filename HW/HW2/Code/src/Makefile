@@ -4,7 +4,7 @@
 CC:=gcc
 CFLAGS:=-Wall -Wextra
 
-DODEBUG ?= 0
+DODEBUG ?= 1
 ifeq ($(DODEBUG), 1)
 	CFLAGS += -DDEBUG_MODE=1
 endif
