@@ -15,31 +15,36 @@
 char start_nodes[100][7];
 
 int main(int argc, char *argv[]){  //argc is the number of arguments, argv is the array of arguments
-#ifdef DEBUG_MODE
-	printf("DEBUG MODE\n");
-	
-	dbg_printf("argc = %d", argc);
-
-	for (int i = 0; i < argc; i++) {
-        	dbg_printf("argv[%d] = %s", i, argv[i]);
-    	}
-#endif
-	char *option = argv[1];
-	char *filename = argv[2];
-	
-	if(argc != 3){
+				   //argv[3] is AND_CONSTRAINTS
+				   //argv[4] is OR_CONSTRAINTS
+				   //argv[5] is NOT_CONSTRAINTS
+	if(argc != 6){
 		printf("Invalid number of arguments\n");
 		return 1;
-	}else if(strncmp(option, "-h", 2) == 0){
-		printf("Option: %s\n", option);
+	}
+
+	char *option = argv[1];
+	char *filename = argv[2];
+	int _AND_CON = atoi(argv[3]);
+	int _OR_CON = atoi(argv[4]);
+	int _NOT_CON = atoi(argv[5]);
+
+	if(strncmp(option, "-h", 2) == 0){
 		printf("heuristic\n");
-		printf("Filename: %s\n", filename);
+		dbg_printf("Option: %s\n", option);
+		dbg_printf("Filename: %s\n", filename);
+		dbg_printf("AND_CONSTRAINTS: %d\n", _AND_CON);
+		dbg_printf("OR_CONSTRAINTS: %d\n", _OR_CON);
+		dbg_printf("NOT_CONSTRAINTS: %d\n", _NOT_CON);
 		file_read(filename);
 
 	}else if(strncmp(option, "-e", 2) == 0){
-		printf("Option: %s\n", option);
 		printf("ILP solver\n");
-		printf("Filename: %s\n", filename);
+		dbg_printf("Option: %s\n", option);
+		dbg_printf("Filename: %s\n", filename);
+		dbg_printf("AND_CONSTRAINTS: %d\n", _AND_CON);
+		dbg_printf("OR_CONSTRAINTS: %d\n", _OR_CON);
+		dbg_printf("NOT_CONSTRAINTS: %d\n", _NOT_CON);
 		file_read(filename);
 
 	}else{

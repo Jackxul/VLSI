@@ -4,9 +4,10 @@
 build:=$(shell mkdir -p build)
 build:=$(shell mkdir -p exe)
 
+DODEBUG = 1
 
 sub: 
-	cd src && $(MAKE)
+	$(MAKE) -C src DODEBUG=$(DODEBUG)
 	@echo "Call Sub Makefile : Done."
 .PHONY: clean
 clean:

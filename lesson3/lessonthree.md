@@ -33,3 +33,15 @@ MR-LCS :  Minimize resources subject to bound on latency
     
     ML-RCS:
         q=list algorithm scheduling in C
+ILP(幼稚園小朋友分群問題)
+    
+    4個小朋友 --> 分兩群 --> 不是在第一群就是在第二群 --> 共8種變數
+ILP Formulation
+    
+    Constraints:
+        - Unique start times
+        - Sequencing(dependency) relations must be satisfied
+        - Resource contraints
+    Objective : 
+        
+
