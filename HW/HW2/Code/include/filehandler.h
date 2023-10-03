@@ -7,7 +7,11 @@
 #include <stdbool.h>
 #include <string.h>
 void file_read(const char *filename);
-void get_node(const char *buffer, char **array);
+void get_inout_node(const char *buffer, bool countflag);
+void get_mid_node(const char *buffer);
+int get_input_node_num();
+int get_mid_node_num();
+int get_output_node_num();
 
 
 
